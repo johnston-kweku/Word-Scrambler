@@ -299,7 +299,7 @@ function renderScrambledWord() {
         answerState.src = "images/wrong.svg"
         setTimeout(() => {
             answerState.src = ""
-        }, 1000);
+        }, 2000);
         answer.classList.add("border-red-600")
         setTimeout(() => {
             answer.placeholder = "Type your answer here..."
