@@ -282,7 +282,7 @@ function renderScrambledWord() {
     attemptCount++;
     attempt.textContent = attemptCount;
 
-    if(answer.value.toUpperCase() === currentWord) {
+    if(answer.value.toUpperCase().trim() === currentWord) {
         correctCount++;
         correct.textContent = correctCount;
         answerState.src = "images/correct.svg"
