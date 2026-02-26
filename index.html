@@ -30,7 +30,7 @@
             </p>
             <div class="flex items-center justify-center">
                 <button id="category-menu" class="flex gap-2 bg-gradient-to-r from-purple-500 to-pink-500 p-3 rounded-lg">
-                    <img  src="images/menu.svg" class="w-6" alt="">
+                    <img  src="images/menu.svg" class="w-6 backdrop-filter:greyscale(100%)" alt="">
                     <p class="font-bold text-white">
                         Change Category
                     </p>
@@ -65,19 +65,31 @@
 
         <!-- Scrambled letters -->
 
-        <div  class=" flex flex-col gap-y-8 items-center justify-center w-full mx-auto bg-gradient-to-r from-purple-500 to-pink-500 text-center rounded-xl p-6 mt-8">
+        <div  class=" flex flex-col gap-y-8 items-center justify-center w-full mx-auto bg-gradient-to-r from-purple-500 to-pink-500 text-center rounded-xl p-4 mt-8">
             <div id="scrambled" class="flex flex-wrap gap-3">
 
 
             </div>
-            <!-- Shuffle button -->
 
-            <button id="shuffle-btn" class="flex text-white gap-3 hover:bg-gray-100 hover:text-black transition active:scale-95 rounded-lg px-4 py-2">
-                <img src="images/shuffle.svg" class="w-5 cursor-pointer" id="shuffle-btn" alt="Shuffle letters button Icon">
-                <p class="text-sm font-bold">
-                    Shuffle Letters
-                </p>
-            </button>
+            <!-- Action buttons -->
+            <div class="flex gap-2">
+                <!-- Shuffle button -->
+                <button id="shuffle-btn" class="flex text-white gap-3 hover:bg-gray-100 hover:text-black transition active:scale-95 rounded-lg px-4 py-2">
+                    <img src="images/shuffle.svg" class="w-5 cursor-pointer" alt="Shuffle letters button Icon">
+                    <p class="text-sm font-bold">
+                        Shuffle Letters
+                    </p>
+                </button>
+                
+                <!-- Show word -->
+                
+                <button id="show-word" class="flex text-white gap-3 hover:bg-gray-100 hover:text-black transition active:scale-95 rounded-lg px-4 py-2">
+                    <img src="images/show.svg" class="w-5">
+                    <p class="text-sm font-bold">
+                        Show Word
+                    </p>
+                </button>
+            </div>
         </div>
 
         <!-- Answer Input -->

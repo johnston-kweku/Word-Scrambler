@@ -175,6 +175,7 @@ const skip = document.getElementById("skip")
 const reset = document.getElementById("reset")
 const answerState = document.getElementById("answer-state")
 const menuBtn = document.getElementById("category-menu")
+const showWord = document.getElementById("show-word")
 
 
 
@@ -261,12 +262,12 @@ function renderScrambledWord() {
     scrambledLetters.forEach((letter, index) => {
         setTimeout(() => {
             scrambledEl.innerHTML += `
-            <p class="letter bg-white p-4 font-bold rounded-lg text-2xl">
+            <p class="letter bg-white p-4 font-bold rounded-lg text-sm sm:text-2xl">
             ${letter}
             </p>
             `
 
-        }, 300 * index);
+        }, 150 * index);
     })
 
 
@@ -327,9 +328,26 @@ shuffle.addEventListener("click", () => {
             ${letter}
             </p>
             `
-        }, 300 * index);
+        }, 150 * index);
     })
 })
+
+// Show word
+showWord.addEventListener("click", () => {
+    currentWord.split().forEach((letter, index) => {
+        scrambledEl.innerHTML = "";
+        setTimeout(() => {
+            scrambledEl.innerHTML += `
+           <p class="letter bg-white p-4 font-bold rounded-lg text-sm sm:text-2xl">
+            ${letter}
+            </p>
+            `
+        }, 150 * index)
+    })
+})
+
+
+
 
 // Reset game state and start a new game.
 function resetGame() {
