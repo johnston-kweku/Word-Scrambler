@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WORD SCRAMBLER</title>
+    <!-- SEO -->
+    <meta name="description" content="Play a free online Word Scrambler game. Unscramble letters, track your accuracy, and improve your vocabulary with this fun word puzzle challenge.">
+    <meta name="keywords" content="word scrambler, word game, scramble letters, vocabulary game, online puzzle game">
+    <meta property="og:title" content="Word Scrambler Game – Free Online Puzzle">
+    <meta property="og:description" content="Unscramble letters, track accuracy, and challenge your brain with this free word puzzle game."> 
+    <meta property="og:image" content="https://johnston-kweku.github.io/Word-Scrambler/images/word.png"> 
+    <meta property="og:type" content="website">
+    <!-- SEO -->
+    <title>Word Scrambler Game – Free Online Word Puzzle Challenge</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="shortcut icon" href="images/word.png" type="image/x-icon">
+    <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "Game", "name": "Word Scrambler", "description": "A free online word scramble puzzle game where players unscramble letters to form correct words.", "applicationCategory": "Game", "operatingSystem": "All" } </script>
 </head>
 <body class="flex items-center justify-center min-h-screen">
     <div class="w-11/12 sm:w-6/12 rounded-3xl bg-white shadow-2xl p-6">
@@ -21,7 +30,7 @@
         </header>
         <!-- Game stats -->
 
-        <section class="flex items-center justify-center mx-auto gap-8">
+        <main class="flex items-center justify-center mx-auto gap-8">
 
             <!-- Correct attempts -->
 
@@ -43,7 +52,7 @@
                 <p id="accuracy" class="text-pink-700 text-3xl">0</p>
                 <p class=" text-sm text-slate-700">Accuracy</p>
              </div>
-        </section>
+        </main>
 
         <!-- Scrambled letters -->
 
@@ -55,7 +64,7 @@
             <!-- Shuffle button -->
 
             <button id="shuffle-btn" class="flex text-white gap-3 hover:bg-gray-100 hover:text-black transition active:scale-95 rounded-lg px-4 py-2">
-                <img src="images/shuffle.svg" class="w-5 cursor-pointer" id="shuffle-btn" alt="Shuffle Icon">
+                <img src="images/shuffle.svg" class="w-5 cursor-pointer" id="shuffle-btn" alt="Shuffle letters button Icon">
                 <p class="text-sm font-bold">
                     Shuffle Letters
                 </p>
@@ -64,7 +73,8 @@
 
         <!-- Answer Input -->
         <div class="flex items-center gap-2 mt-10">
-            <input type="text" autocomplete="off" id="answer" placeholder="Type your answer here..." class="w-[500px] bg-gray-100 rounded-lg border-2 border-gray-200 p-3 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-gray-500">
+            <input type="text" autocomplete="off"  id="answer" placeholder="Type your answer here..." class="w-[500px] bg-gray-100 rounded-lg border-2 border-gray-200 p-3 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-gray-500">
+            <img id="answer-state" src="" class="w-6 absolute ml-[440px]">
             <button id="check-btn" class="bg-gradient-to-r from-purple-500 to-pink-500 flex items-center gap-1 rounded-lg h-14 px-4 active:scale-95 transition">
                 <img src="images/tick.svg" class="w-5" id="submit-btn" alt="Submit Icon">
                 <p class="text-white font-bold">Check</p>

@@ -32,6 +32,7 @@ const shuffle = document.getElementById("shuffle-btn")
 const hint = document.getElementById("hint")
 const skip = document.getElementById("skip")
 const reset = document.getElementById("reset")
+const answerState = document.getElementById("answer-state")
 
 
 let attemptCount = 0;
@@ -95,14 +96,21 @@ function renderScrambledWord() {
     if(answer.value.toUpperCase() === currentWord) {
         correctCount++;
         correct.textContent = correctCount;
-
+        answerState.src = "images/correct.svg"
+        setTimeout(() => {
+            answerState.src = ""
+        }, 1000);
         const index = WORDS.indexOf(currentWord);
         if (index !== -1) {
             WORDS.splice(index, 1);
         }
         renderScrambledWord();
     }else {
-        answer.placeholder = "Wrong"
+
+        answerState.src = "images/wrong.svg"
+        setTimeout(() => {
+            answerState.src = ""
+        }, 1000);
         answer.classList.add("border-red-600")
         setTimeout(() => {
             answer.placeholder = "Type your answer here..."
