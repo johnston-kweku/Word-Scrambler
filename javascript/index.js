@@ -1,6 +1,4 @@
-
-const WORDS = [
-  'JAVASCRIPT',
+const PROGRAMMING = [
   'PROGRAMMING',
   'COMPUTER',
   'KEYBOARD',
@@ -19,8 +17,151 @@ const WORDS = [
   'TERMINAL',
   'REPOSITORY',
   'ENGINEER',
-  'CREATIVE'
-];
+  'CREATIVE',
+  'COMPILER',
+  'API',
+  'SERVER',
+  'ENCRYPTION'
+]
+
+const PROGRAMMINGLANGUAGE = [
+  'JAVASCRIPT',
+  'PYTHON',
+  'JAVA',
+  'CPLUSPLUS',
+  'RUBY',
+  'PHP',
+  'SWIFT',
+  'GOLANG',
+  'TYPESCRIPT',
+  'KOTLIN',
+  'SCALA',
+  'RUST',
+  'DART',
+  'ELIXIR',
+  'HASKELL',
+]
+
+const FRONTEND = [
+  'REACT',
+  'VUE',
+  'ANGULAR',
+  'SVELTE',
+  'BOOTSTRAP',
+  'TAILWIND',
+  'JQUERY',
+  'WEBPACK',
+  'HOOK',
+  'COMPONENT',
+  'PROPS',
+  'STATE',
+  'ROUTER',
+]
+
+
+const COMPUTERHARDWARE = [
+    'PROCESSOR',
+    'MOTHERBOARD',
+    'MONITOR',
+    'KEYBOARD',
+    'MOUSE',
+    'HARDDRIVE',
+    'MEMORY',
+    'GRAPHICS',
+    'BATTERY',
+    'PRINTER',
+]
+
+const SCIENCE = [
+    'PHYSICS',
+    'CHEMISTRY',
+    'BIOLOGY',
+    'ASTRONOMY',
+    'GEOLOGY',
+    'ECOLOGY',
+    'GENETICS',
+    'NEUROSCIENCE',
+    'MICROBIOLOGY',
+    'ZOOLOGY',
+    'GRAVITY',
+    'ATOM',
+    'ENERGY',
+    'MOLECULE',
+    'EVOLUTION',
+    'RADIATION',
+    'ECOSYSTEM',
+]
+
+const MATHEMATICS = [
+    'CALCULUS',
+    'GEOMETRY',
+    'ALGEBRA',
+    'TRIGONOMETRY',
+    'STATISTICS',
+    'PROBABILITY',
+    'VECTOR',
+    'MATRIX',
+    'INTEGRAL',
+    'DERIVATIVE',
+]
+
+const COUNTRIES = [
+    'GHANA',
+    'CANADA',
+    'BRAZIL',
+    'GERMANY',
+    'FRANCE',
+    'JAPAN',
+    'MEXICO',
+    'INDIA',
+    'KENYA',
+    'ITALY',
+]
+
+const ASTROLOGY = [
+    'GALAXY',
+    'PLANET',
+    'ASTEROID',
+    'COMET',
+    'NEBULA',
+    'SATELLITE',
+    'ORBIT',
+    'TELESCOPE',
+    'COSMOS',
+    'SUPERNOVA',
+]
+
+const SPORTS = [
+    'FOOTBALL',
+    'BASKETBALL',
+    'CRICKET',
+    'TENNIS',
+    'BASEBALL',
+    'GOLF',
+    'SWIMMING',
+    'CYCLING',
+    'RUNNING',
+    'BOXING',
+]
+
+const BUSINESS = [
+    'MARKETING',
+    'FINANCE',
+    'ENTREPRENEUR',
+    'INVESTMENT',
+    'STRATEGY',
+    'LEADERSHIP',
+    'MANAGEMENT',
+    'ECONOMICS',
+    'INNOVATION',
+    'STARTUP',
+    'PORTFOLIO',
+]
+
+
+
+
+
 const scrambledEl = document.getElementById('scrambled');
 const letters = document.getElementById("letters")
 const answer = document.getElementById("answer")
@@ -33,6 +174,9 @@ const hint = document.getElementById("hint")
 const skip = document.getElementById("skip")
 const reset = document.getElementById("reset")
 const answerState = document.getElementById("answer-state")
+const menuBtn = document.getElementById("category-menu")
+
+
 
 
 let attemptCount = 0;
@@ -53,10 +197,55 @@ function wordScrambler(word) {
     return chars.join('')
 }
 
+const CATEGORIES = [
+    { name: "Programming", words: PROGRAMMING },
+    { name: "Languages", words: PROGRAMMINGLANGUAGE },
+    { name: "Frontend", words: FRONTEND },
+    { name: "Hardware", words: COMPUTERHARDWARE },
+    { name: "Science", words: SCIENCE },
+    { name: "Sports", words: SPORTS },
+    { name: "Business", words: BUSINESS },
+    { name: "Astrology", words: ASTROLOGY },
+    { name: "Countries", words: COUNTRIES },
+    { name: "Mathematics", words: MATHEMATICS },
+];
+
+let activeCategory = CATEGORIES[0]; // default category
+let activeWords = [...activeCategory.words]
+
+menuBtn.addEventListener("click", () => {
+    let existingMenu = document.querySelector("#category-menu-popup");
+    if (existingMenu) {
+        existingMenu.remove();
+        return;
+    }
+
+    const menu = document.createElement("div");
+    menu.id = "category-menu-popup";
+    menu.classList.add("absolute", "top-16", "right-4", "bg-white", "shadow-lg", "rounded-lg", "p-4", "w-48", "z-10");
+    menu.innerHTML = `
+        <p class="font-bold text-gray-800 mb-2">Select Category</p>
+        ${CATEGORIES.map(cat => `<p class="cursor-pointer hover:bg-gray-100 p-2 rounded">${cat.name} - ${cat.words.length} words</p>`).join('')}
+    `;
+    document.body.appendChild(menu);
+
+    menu.querySelectorAll("p").forEach((p, i) => {
+        if(i === 0) return; // skip the title
+        p.addEventListener("click", () => {
+            activeCategory = CATEGORIES[i - 1];
+            activeWords = [...activeCategory.words];
+
+            resetGame();
+            menu.remove();
+        });
+    });
+});
+
+
 
 // Display a scrambled word on the page.
 function renderScrambledWord() {
-    if (WORDS.length === 0) {
+    if (activeWords.length === 0) {
         scrambledEl.innerHTML = "<p class='text-2xl font-bold text-white'>Congratulations! You've completed the game.</p>";
         checkBtn.disabled = true;
         shuffle.disabled = true;
@@ -64,12 +253,12 @@ function renderScrambledWord() {
     }
     scrambledEl.innerHTML = "";
 
-    const randomIndex = Math.floor(Math.random() * WORDS.length);
-    currentWord = WORDS[randomIndex];
+    const randomIndex = Math.floor(Math.random() * activeWords.length);
+    currentWord = activeWords[randomIndex];
     hint.textContent = `Hint: ${currentWord[0]}${currentWord[currentWord.length - 1]} - ${currentWord.length} letters`;
     const scrambled = wordScrambler(currentWord);
-    const letters = scrambled.split('')
-    letters.forEach((letter, index) => {
+    const scrambledLetters = scrambled.split('')
+    scrambledLetters.forEach((letter, index) => {
         setTimeout(() => {
             scrambledEl.innerHTML += `
             <p class="letter bg-white p-4 font-bold rounded-lg text-2xl">
@@ -100,9 +289,9 @@ function renderScrambledWord() {
         setTimeout(() => {
             answerState.src = ""
         }, 1000);
-        const index = WORDS.indexOf(currentWord);
+        const index = activeWords.indexOf(currentWord);
         if (index !== -1) {
-            WORDS.splice(index, 1);
+            activeWords.splice(index, 1);
         }
         renderScrambledWord();
     }else {
@@ -118,12 +307,15 @@ function renderScrambledWord() {
         }, 1000);
         
     }
+    // Set accuracy
     accuracy.textContent = `${Math.floor(((correctCount / attemptCount) * 100))}%`;
     answer.value = ""
     
         })
 
 
+
+// Reshuffle the current scrambled word.
 shuffle.addEventListener("click", () => {
     if(!currentWord) return;
     scrambledEl.innerHTML = "";
@@ -139,23 +331,31 @@ shuffle.addEventListener("click", () => {
     })
 })
 
-reset.addEventListener("click", () => {
+// Reset game state and start a new game.
+function resetGame() {
     attemptCount = 0;
     correctCount = 0;
     attempt.textContent = attemptCount;
     correct.textContent = correctCount;
     accuracy.textContent = "0%";
     answer.value = "";
-    WORDS.push("SCRAMBLER", "JAVASCRIPT", "PROGRAMMING", "DEVELOPER", "ALGORITHM");
+    activeWords = [...activeCategory.words];
+    checkBtn.disabled = false;
+    shuffle.disabled = false;
     renderScrambledWord();
-})
+}
+reset.addEventListener("click", resetGame)
 
+
+
+
+// Skip current word
 skip.addEventListener("click", () => {
     if(!currentWord) return;
 
-    const index = WORDS.indexOf(currentWord);
+    const index = activeWords.indexOf(currentWord);
         if (index !== -1) {
-            WORDS.splice(index, 1);
+            activeWords.splice(index, 1);
         }
         renderScrambledWord();
 })
