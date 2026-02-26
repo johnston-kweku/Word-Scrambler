@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORD SCRAMBLER</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="/images/word.png" type="image/x-icon">
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <div class="w-11/12 sm:w-6/12 rounded-3xl bg-white shadow-2xl p-6">
+        <!-- Title -->
+
+        <header class="mx-auto text-center flex flex-col items-center justify-center h-full gap-2 mb-6">
+            <h1 class="text-3xl sm:text-5xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+                Word Scrambler
+            </h1>
+            <p class="text-slate-500">
+                Unscramble the letters to reveal the word!
+            </p>
+        </header>
+        <!-- Game stats -->
+
+        <section class="flex items-center justify-center mx-auto gap-8">
+
+            <!-- Correct attempts -->
+
+            <div class="bg-blue-100 text-center rounded-lg p-4 sm:w-48">
+                <p id="correct" class="text-blue-500 text-3xl">0</p>
+                <p class="text-sm text-slate-700">Correct</p>
+            </div>
+
+            <!-- Total attempts -->
+
+            <div class="bg-purple-100 text-center rounded-lg p-4 sm:w-48">
+                <p id="attempt" class="text-purple-600 text-3xl ">0</p>
+                <p class="text-sm text-slate-700">Attempts</p>
+            </div>
+
+            <!-- Accuracy -->
+
+             <div class="bg-pink-100 text-center rounded-lg p-4 sm:w-48">
+                <p id="accuracy" class="text-pink-700 text-3xl">0</p>
+                <p class=" text-sm text-slate-700">Accuracy</p>
+             </div>
+        </section>
+
+        <!-- Scrambled letters -->
+
+        <div  class=" flex flex-col gap-y-8 items-center justify-center w-full mx-auto bg-gradient-to-r from-purple-500 to-pink-500 text-center rounded-xl p-6 mt-8">
+            <div id="scrambled" class="flex flex-wrap gap-3">
+
+
+            </div>
+            <!-- Shuffle button -->
+
+            <button id="shuffle-btn" class="flex text-white gap-3 hover:bg-gray-100 hover:text-black transition active:scale-95 rounded-lg px-4 py-2">
+                <img src="/images/shuffle.svg" class="w-5 cursor-pointer" id="shuffle-btn" alt="Shuffle Icon">
+                <p class="text-sm font-bold">
+                    Shuffle Letters
+                </p>
+            </button>
+        </div>
+
+        <!-- Answer Input -->
+        <div class="flex items-center gap-2 mt-10">
+            <input type="text" autocomplete="off" id="answer" placeholder="Type your answer here..." class="w-[500px] bg-gray-100 rounded-lg border-2 border-gray-200 p-3 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-gray-500">
+            <button id="check-btn" class="bg-gradient-to-r from-purple-500 to-pink-500 flex items-center gap-1 rounded-lg h-14 px-4 active:scale-95 transition">
+                <img src="/images/tick.svg" class="w-5" id="submit-btn" alt="Submit Icon">
+                <p class="text-white font-bold">Check</p>
+            </button>
+        </div>
+
+        <!-- Skip and Reset -->
+
+        <div class="flex gap-2 mt-4 w-full">
+            <!-- Skip -->
+
+            <button id="skip" class="flex gap-3 items-center justify-center w-full border rounded-lg py-3 active:scale-95 transition hover:bg-gray-100">
+                <img src="/images/skip.svg" class="w-5" id="skip-btn" alt="Skip Icon">
+                <p>Skip</p>
+            </button>
+
+            <!-- Reset -->
+
+            <button id="reset" class="flex gap-3 items-center justify-center w-full border rounded-lg py-3 active:scale-95 transition hover:bg-gray-100">
+                <img src="/images/reset.svg" class="w-5" id="reset-btn" alt="Reset Icon">
+                <p>Reset</p>
+            </button>
+        </div>
+
+        <!-- Hint -->
+         <div class="mt-6 rounded-lg p-4 text-center">
+            <p id="hint" class="text-slate-400">Hint: </p>
+         </div>
+    </div>
+
+
+    <script src="/javascript/index.js"></script>
+</body>
+</html>
