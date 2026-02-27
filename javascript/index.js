@@ -1,3 +1,23 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyByAMu9bweuYrpU4_VJhdG5wlnqH2iAUUQ",
+    authDomain: "word-scrambler-a3610.firebaseapp.com",
+    projectId: "word-scrambler-a3610",
+    storageBucket: "word-scrambler-a3610.firebasestorage.app",
+    messagingSenderId: "975931081970",
+    appId: "1:975931081970:web:82c0931f8cae9fff053c6b"
+  };
+
+
+const app = initializeApp(firebaseConfig);
+
+if ("serviceWorker" in navigator) {
+window.addEventListener("load", () => {
+navigator.serviceWorker.register("/service-worker.js");
+});
+}
+
 const PROGRAMMING = [
   'PROGRAMMING','COMPUTER','KEYBOARD','ALGORITHM','DATABASE','NETWORK','SOFTWARE',
   'DEVELOPER','FUNCTION','VARIABLE','INTERFACE','COMPONENT','FRAMEWORK','APPLICATION',
