@@ -330,12 +330,17 @@ correct.textContent = correctCount;
 
 // Fisher-Yates Shuffle Algorithm. 
 function wordScrambler(word) {
+    if(word.length <= 1) return word;
     const chars = word.split('');
+    let scrambled = word;
+    while(scrambled === word) {
     for(let i = chars.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [chars[i], chars[j]] = [chars[j], chars[i]];
     }
-    return chars.join('')
+    scrambled = chars.join('');
+}
+    return scrambled
 }
 
 const CATEGORIES = [
