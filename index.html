@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO -->
     <meta name="description" content="Play a free online Word Scrambler game. Unscramble letters, track your accuracy, and improve your vocabulary with this fun word puzzle challenge.">
-    <meta name="keywords" content="word scrambler, word game, scramble letters, vocabulary game, online puzzle game">
+    <meta name="keywords" content="word scrambler, word game, scramble letters, vocabulary game, online puzzle game, johnston game, johnston kweku abubakar">
     <meta property="og:title" content="Word Scrambler Game – Free Online Puzzle">
     <meta property="og:description" content="Unscramble letters, track accuracy, and challenge your brain with this free word puzzle game."> 
     <meta property="og:image" content="https://johnston-kweku.github.io/Word-Scrambler/images/word.png"> 
@@ -13,7 +13,7 @@
     <meta name="google-site-verification" content="klIA_hi9iPv0T47CWU1jpMvf4rU63nFfn4mcgJ-IU1c" />
     <!-- SEO -->
     <title>Word Scrambler Game – Free Online Word Puzzle Challenge</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="output.css">
     <link rel="shortcut icon" href="images/word.png" type="image/x-icon">
     <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "Game", "name": "Word Scrambler", "description": "A free online word scramble puzzle game where players unscramble letters to form correct words.", "applicationCategory": "Game", "operatingSystem": "All" } </script>
 </head>
@@ -22,7 +22,7 @@
         <!-- Title -->
 
         <header class="mx-auto text-center flex flex-col items-center justify-center h-full gap-2 mb-6">
-            <h1 class="text-3xl sm:text-5xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <h1 class="text-3xl sm:text-5xl font-bold bg-linear-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
                 Word Scrambler
             </h1>
             <p class="text-slate-500">
@@ -32,7 +32,7 @@
 
             </p>
             <div class="flex items-center justify-center">
-                <button id="category-menu" class="flex gap-2 bg-gradient-to-r from-purple-500 to-pink-500 p-3 rounded-lg active:scale-95">
+                <button id="category-menu" class="flex gap-2 bg-linear-to-r from-purple-500 to-pink-500 p-3 rounded-lg active:scale-95">
                     <img  src="images/menu.svg" class="w-6 backdrop-filter:greyscale(100%)" alt="">
                     <p class="font-bold text-white">
                         Change Category
@@ -71,7 +71,7 @@
 
         <!-- Scrambled letters -->
 
-        <div  class=" flex flex-col gap-y-8 items-center justify-center w-full mx-auto bg-gradient-to-r from-purple-500 to-pink-500 text-center rounded-xl p-3 mt-8">
+        <div  class=" flex flex-col gap-y-8 items-center justify-center w-full mx-auto bg-linear-to-r from-purple-500 to-pink-500 text-center rounded-xl p-3 mt-8">
             <div id="scrambled" class="flex flex-wrap gap-3 mx-auto items-center justify-center text-4xl font-bold">
                 <!-- Scrambled letters will be displayed here -->
 
@@ -101,8 +101,8 @@
 
         <!-- Answer Input -->
         <div class="flex items-center gap-2 mt-10">
-            <input type="text" autocomplete="off"  id="answer" placeholder="Type your answer here..." class="w-[500px] bg-gray-100 rounded-lg border-2 border-gray-200 p-3 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-gray-500">
-            <button id="check-btn" class="bg-gradient-to-r from-purple-500 to-pink-500 flex items-center gap-1 rounded-lg h-12 sm:h-14 px-4 active:scale-95 transition">
+            <input type="text" autocomplete="off"  id="answer" placeholder="Type your answer here..." class="w-125 bg-gray-100 rounded-lg border-2 border-gray-200 p-3 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-gray-500">
+            <button id="check-btn" class="bg-linear-to-r from-purple-500 to-pink-500 flex items-center gap-1 rounded-lg h-12 sm:h-14 px-4 active:scale-95 transition">
                 <img src="images/tick.svg" class="w-5 ml-0" id="submit-btn" alt="Submit Icon">
                 <p class="text-white font-bold text-sm mr-2">Check</p>
             </button>
