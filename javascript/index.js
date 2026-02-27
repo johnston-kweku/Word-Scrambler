@@ -464,7 +464,7 @@ checkBtn.addEventListener("click", () => {
     if(answer.value.toUpperCase().trim() === currentWord) {
         correctCount++;
         correct.textContent = correctCount;
-        answerState.src = "/images/correct.svg"
+        answerState.src = "images/correct.svg"
         setTimeout(() => {
             answerState.src = ""
         }, 2000);
@@ -475,7 +475,7 @@ checkBtn.addEventListener("click", () => {
         renderScrambledWord();
     }else {
         
-        answerState.src = "/images/wrong.svg"
+        answerState.src = "images/wrong.svg"
         setTimeout(() => {
             answerState.src = ""
         }, 2000);
