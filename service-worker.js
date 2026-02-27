@@ -1,13 +1,13 @@
-const CACHE_NAME = "word-scrambler-v1";
+const CACHE_NAME = "word-scrambler-v2";
 
 self.addEventListener("install", event => {
 event.waitUntil(
 caches.open(CACHE_NAME).then(cache => {
 return cache.addAll([
-"/",
-"/index.html",
-"/output.css",
-"javascript/index.js"
+"/Word-Scrambler/",
+"/Word-Scrambler/index.html",
+"/Word-Scrambler/output.css",
+"/Word-Scrambler/javascript/index.js"
 ]);
 })
 );

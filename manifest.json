@@ -1,7 +1,8 @@
 {
 "name": "Word Scrambler",
 "short_name": "Scrambler",
-"start_url": "/",
+"start_url": "/Word-Scrambler/",
+"scope": "/Word-Scrambler/",
 "display": "standalone",
 "background_color": "#ffffff",
 "theme_color": "#000000",
