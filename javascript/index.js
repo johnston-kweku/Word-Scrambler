@@ -201,7 +201,7 @@ function wordScrambler(word) {
 
 const CATEGORIES = [
     { name: "Programming", words: PROGRAMMING },
-    { name: "Languages", words: PROGRAMMINGLANGUAGE },
+    { name: "Programming Languages", words: PROGRAMMINGLANGUAGE },
     { name: "Frontend", words: FRONTEND },
     { name: "Hardware", words: COMPUTERHARDWARE },
     { name: "Science", words: SCIENCE },
@@ -265,7 +265,7 @@ function renderScrambledWord() {
     scrambledLetters.forEach((letter, index) => {
         setTimeout(() => {
             scrambledEl.innerHTML += `
-            <p class="letter bg-white p-4 font-bold rounded-lg text-sm sm:text-2xl">
+            <p class="letter bg-white p-3 sm:p-4 font-bold rounded-lg text-sm sm:text-2xl">
             ${letter}
             </p>
             `
@@ -289,10 +289,10 @@ checkBtn.addEventListener("click", () => {
     if(answer.value.toUpperCase().trim() === currentWord) {
         correctCount++;
         correct.textContent = correctCount;
-        answerState.src = "images/correct.svg"
+        answerState.src = "/images/correct.svg"
         setTimeout(() => {
             answerState.src = ""
-        }, 1000);
+        }, 2000);
         const index = activeWords.indexOf(currentWord);
         if (index !== -1) {
             activeWords.splice(index, 1);
@@ -300,7 +300,7 @@ checkBtn.addEventListener("click", () => {
         renderScrambledWord();
     }else {
         
-        answerState.src = "images/wrong.svg"
+        answerState.src = "/images/wrong.svg"
         setTimeout(() => {
             answerState.src = ""
         }, 2000);

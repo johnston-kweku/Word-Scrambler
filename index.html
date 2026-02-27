@@ -32,12 +32,15 @@
 
             </p>
             <div class="flex items-center justify-center">
-                <button id="category-menu" class="flex gap-2 bg-gradient-to-r from-purple-500 to-pink-500 p-3 rounded-lg">
+                <button id="category-menu" class="flex gap-2 bg-gradient-to-r from-purple-500 to-pink-500 p-3 rounded-lg active:scale-95">
                     <img  src="images/menu.svg" class="w-6 backdrop-filter:greyscale(100%)" alt="">
                     <p class="font-bold text-white">
                         Change Category
                     </p>
                 </button>
+            </div>
+            <div>
+                <img id="answer-state" src="" class="w-6 sm:w-8">
             </div>
         </header>
         <!-- Game stats -->
@@ -61,15 +64,16 @@
             <!-- Accuracy -->
 
              <div class="bg-pink-100 text-center rounded-lg p-4 sm:w-48">
-                <p id="accuracy" class="text-pink-700 text-3xl">0</p>
+                <p id="accuracy" class="text-pink-700 text-3xl">0%</p>
                 <p class=" text-sm text-slate-700">Accuracy</p>
              </div>
         </main>
 
         <!-- Scrambled letters -->
 
-        <div  class=" flex flex-col gap-y-8 items-center justify-center w-full mx-auto bg-gradient-to-r from-purple-500 to-pink-500 text-center rounded-xl p-4 mt-8">
-            <div id="scrambled" class="flex flex-wrap gap-3">
+        <div  class=" flex flex-col gap-y-8 items-center justify-center w-full mx-auto bg-gradient-to-r from-purple-500 to-pink-500 text-center rounded-xl p-3 mt-8">
+            <div id="scrambled" class="flex flex-wrap gap-3 mx-auto items-center justify-center text-4xl font-bold">
+                <!-- Scrambled letters will be displayed here -->
 
 
             </div>
@@ -98,10 +102,9 @@
         <!-- Answer Input -->
         <div class="flex items-center gap-2 mt-10">
             <input type="text" autocomplete="off"  id="answer" placeholder="Type your answer here..." class="w-[500px] bg-gray-100 rounded-lg border-2 border-gray-200 p-3 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-gray-500">
-            <img id="answer-state" src="" class="w-6 absolute ml-[440px]">
-            <button id="check-btn" class="bg-gradient-to-r from-purple-500 to-pink-500 flex items-center gap-1 rounded-lg h-14 px-4 active:scale-95 transition">
-                <img src="images/tick.svg" class="w-5" id="submit-btn" alt="Submit Icon">
-                <p class="text-white font-bold">Check</p>
+            <button id="check-btn" class="bg-gradient-to-r from-purple-500 to-pink-500 flex items-center gap-1 rounded-lg h-12 sm:h-14 px-4 active:scale-95 transition">
+                <img src="images/tick.svg" class="w-5 ml-0" id="submit-btn" alt="Submit Icon">
+                <p class="text-white font-bold text-sm mr-2">Check</p>
             </button>
         </div>
 
