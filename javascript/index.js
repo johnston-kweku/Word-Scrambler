@@ -1,5 +1,4 @@
 
-
 if ("serviceWorker" in navigator) {
 window.addEventListener("load", () => {
 navigator.serviceWorker.register("/service-worker.js");
@@ -510,7 +509,7 @@ shuffle.addEventListener("click", () => {
     scrambled.split('').forEach((letter, index) => {
         setTimeout(() => {
             scrambledEl.innerHTML += `
-            <p class="bg-white p-4 font-bold rounded-lg text-2xl">
+            <p class="bg-white p-3 sm:p-4 font-bold rounded-lg text-2xl">
             ${letter}
             </p>
             `
